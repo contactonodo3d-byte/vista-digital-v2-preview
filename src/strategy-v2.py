@@ -110,6 +110,8 @@ def apply():
 
 if __name__=='__main__':
     apply()
+    import runpy
+    runpy.run_path(str(ROOT/'src/assessment-v2.py'))['apply']()
     (D/'pages.js').write_text((ROOT/'src/strategy-pages.js').read_text())
     css=(D/'style.css').read_text().split('/* Approved Vista V2 strategy refinements */')[0]
     (D/'style.css').write_text((css+'\n'+(ROOT/'src/strategy.css').read_text()).replace('open-sans-variable.ttf','open-sans-variable.woff').replace("format('truetype')","format('woff')"))
